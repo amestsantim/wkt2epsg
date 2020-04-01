@@ -1,4 +1,5 @@
 /vendor
 /.idea
+/esri/esri.html
 .env
 .phpunit.result.cache
