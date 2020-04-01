@@ -1,0 +1,27 @@
+{
+    "name": "amestsantim/wkt2epsg",
+    "description": "A PHP library that can be used to convert well-known text (WKT) projection information (like ones found in .prj files) to standard EPSG codes.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nahom",
+            "email": "nahomt@amestsantim.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"amestsantim\\wkt2epsg\\": "src/"}
+    },
+    "autoload-dev": {
+        "classmap": ["tests"]
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.1.0",
+        "ext-sqlite3": "*",
+        "ext-pdo": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    }
+}
