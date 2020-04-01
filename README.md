@@ -53,7 +53,7 @@ $finder->wktToEpsg('wkt string');
 // Equivalent EPSG code or null (if not found)
 ```
 ## Documentation
-The package works by querying the included sqlite database. The database has a table called 'epsg' which has three columns:
+The package works by querying the included SQLite database. The database has a table called 'epsg' which has mappings of Well-known Text strings to EPSG codeswhich. It has three columns:
 -   epsg
 -   name
 -   wkt
@@ -62,7 +62,9 @@ The the two conversion methods simply query the respective field and return the 
 
 The sqlite database (epsg.db) is created by scrapping the Projected Coordinate Systems page (https://developers.arcgis.com/javascript/3/jshelp/pcs.html) from ESRI's arcgis website.
 
-Since Projected Coordinate Systems page might get updated, I have included with this library, the python script that I used to scrape and generate the database. To do so, just run the script (esri_scrapper.py) from the esri directory.
+Since Projected Coordinate Systems page might get updated, I have included with this library, the python3 script that I used to scrape and generate the database. To do so, just run the script (esri_scrapper.py) from the esri directory.
+
+I made this library because I had the need to identify the EPSG code of a shapefile (the CRS of the shapefile), especially when importing into PostGIS. I use the [php-shapefile](https://gasparesganga.com/labs/php-shapefile/) library which will read and return to you the raw WKT text from the .prj file but will not provide you with the EPSG SRID.
 
 ## Contributing
 
@@ -78,5 +80,5 @@ This project is licensed under the MIT License
 
 ## Acknowledgments
 
-* This package was inspired by [sridentify](https://github.com/gladchinda/keygen-php)
+* This package was inspired by [sridentify](https://github.com/cmollet/sridentify)
 
