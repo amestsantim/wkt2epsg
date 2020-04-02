@@ -6,12 +6,14 @@ use SQLite3;
 
 class Translator
 {
-    const PATH_TO_SQLITE_FILE = 'esri/epsg.db';
+    private $pathToDb;
     private $db;
 
     public function __construct()
     {
-        $this->db = new SQLite3(self::PATH_TO_SQLITE_FILE, SQLITE3_OPEN_READONLY);
+        $this->pathToDb = dirname(__DIR__, 1) . "/esri/epsg.db";
+        //echo $this->pathToDb;
+        $this->db = new SQLite3($this->pathToDb, SQLITE3_OPEN_READONLY);
     }
 
     public function wktToEpsg($wkt) {
